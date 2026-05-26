@@ -12,6 +12,7 @@ Convierten a Claude en un asistente experto en emprendimiento, pitches y metodol
 | `pitch-to-deck` | Genera una one-pager HTML imprimible para cualquier proyecto. Pregunta todo: branding, datos, equipo, métricas. | `/pitch-to-deck` |
 | `ries-lean-startup` | Carga los 10 frameworks de El método Lean Startup. Responde preguntas sobre MVP, pivot, métricas, motor de crecimiento. | `/ries-lean-startup` |
 | `pitch-psychologist` | Estructura un pitch usando psicología de persuasión: construye deseo antes de presentar la solución. | `/pitch-psychologist` |
+| `book-to-skill` | Convierte cualquier libro (PDF, EPUB, DOCX…) en una skill de Claude. El equipo puede cargar sus propios libros. | `/book-to-skill` |
 
 ---
 
@@ -102,6 +103,32 @@ Usa psicología de persuasión para ordenar tu pitch: primero el mundo del clien
 Combina con `/pitch-to-deck` para convertir el pitch estructurado en una one-pager:
 1. `/pitch-psychologist` → estructura el pitch
 2. Pega el resultado en `/pitch-to-deck` → genera el HTML
+
+---
+
+### `/book-to-skill` — Carga cualquier libro como skill
+
+Tienes un libro en PDF, EPUB o DOCX que quieres que Claude pueda usar como referencia.
+
+```
+/book-to-skill /ruta/al/libro.pdf nombre-skill
+```
+
+Ejemplo:
+```
+/book-to-skill /Users/ana/Downloads/zero-to-one.pdf zero-to-one
+```
+
+Claude extrae los frameworks, principios y técnicas del libro y crea una skill que puedes usar con `/zero-to-one`. El proceso tarda unos minutos según el tamaño del libro.
+
+Una vez creada, la skill queda en `~/.claude/skills/zero-to-one/` y puedes añadirla a este repo con un Pull Request para que todo el equipo la tenga.
+
+---
+
+## Flujo recomendado para crear un pitch completo
+
+1. `/pitch-psychologist` — estructura el pitch con el arco emocional correcto
+2. `/pitch-to-deck` — convierte el pitch en una one-pager HTML imprimible
 
 ---
 
