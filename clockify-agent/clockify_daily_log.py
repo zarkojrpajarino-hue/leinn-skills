@@ -29,6 +29,12 @@ import requests
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+# Force UTF-8 output on Windows
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
+
 # --- CONFIG ------------------------------------------------------------------
 def _load_config():
     config_path = Path(__file__).parent / "clockify_config.json"
