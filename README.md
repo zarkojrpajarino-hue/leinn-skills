@@ -14,6 +14,12 @@ Convierten a Claude en un asistente experto en emprendimiento, pitches y metodol
 | `pitch-psychologist` | Estructura un pitch usando psicología de persuasión: construye deseo antes de presentar la solución. | `/pitch-psychologist` |
 | `book-to-skill` | Convierte cualquier libro (PDF, EPUB, DOCX…) en una skill de Claude. El equipo puede cargar sus propios libros. | `/book-to-skill` |
 
+## Agentes incluidos
+
+| Agente | Qué hace | Cómo usar |
+|--------|----------|-----------|
+| `clockify-agent` | Registra automáticamente tu trabajo diario en Clockify leyendo tus sesiones de Claude Code. Genera descripciones con IA. | `python3 clockify_daily_log.py` |
+
 ---
 
 ## Instalación (5 minutos)
@@ -122,6 +128,29 @@ Ejemplo:
 Claude extrae los frameworks, principios y técnicas del libro y crea una skill que puedes usar con `/zero-to-one`. El proceso tarda unos minutos según el tamaño del libro.
 
 Una vez creada, la skill queda en `~/.claude/skills/zero-to-one/` y puedes añadirla a este repo con un Pull Request para que todo el equipo la tenga.
+
+---
+
+### `clockify-agent` — Time tracker automático
+
+No necesitas instalar como skill de Claude. Es un script Python que corres al final del día.
+
+**Setup (una sola vez):**
+```bash
+pip install requests
+cd leinn-skills/clockify-agent
+cp clockify_config.example.json clockify_config.json
+# Edita clockify_config.json con tus keys (ver SKILL.md para instrucciones)
+```
+
+**Uso diario:**
+```bash
+python3 clockify_daily_log.py           # registrar hoy
+python3 clockify_daily_log.py --dry-run # ver bloques sin crear nada
+python3 clockify_daily_log.py --yesterday
+```
+
+Lee el `SKILL.md` dentro de la carpeta para saber dónde conseguir cada API key.
 
 ---
 

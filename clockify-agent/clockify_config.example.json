@@ -1,0 +1,7 @@
+{
+  "clockify_api_key": "TU_CLOCKIFY_API_KEY",
+  "clockify_workspace": "TU_WORKSPACE_ID",
+  "clockify_project": "TU_PROJECT_ID",
+  "anthropic_api_key": "TU_ANTHROPIC_API_KEY",
+  "anthropic_model": "claude-haiku-4-5-20251001"
+}
